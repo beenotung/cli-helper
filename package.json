@@ -1,0 +1,26 @@
+{
+  "name": "cli-helper",
+  "version": "0.0.0",
+  "description": "",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "tsc --noEmit",
+    "clean": "rimraf dist",
+    "build": "rimraf dist && tsc -p . && rimraf dist/tsconfig.tsbuildinfo",
+    "tsc": "tsc -p ."
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.5",
+    "rimraf": "^5.0.5",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.4.4"
+  }
+}
