@@ -1,12 +1,16 @@
 # cli-helpers
 
-Helper library for cli applications
+Helper library for building cli applications
 
 [![npm Package Version](https://img.shields.io/npm/v/cli-helpers)](https://www.npmjs.com/package/cli-helpers)
 
 ## Features
 
-- Read from cli without missing from multiline pasting
+- **Multi-Line** I/O interface
+  - **async** `io.question(text)` for ease of use
+  - **buffered input** prevents data lost when pasting multi-line input
+  - **customizable I/O stream** using `process.stdin` and `process.stdout` as default
+  - **flushable buffer** to get pending input lines
 - Typescript support
 
 ## Installation

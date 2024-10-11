@@ -1,7 +1,7 @@
 {
   "name": "cli-helpers",
   "version": "1.0.1",
-  "description": "Helper library for cli applications",
+  "description": "Helper library for building cli applications",
   "keywords": [
     "cli",
     "io",
