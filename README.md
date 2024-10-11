@@ -20,13 +20,40 @@ You can also install `cli-helper` with [pnpm](https://pnpm.io/), [yarn](https://
 ## Usage Example
 
 ```typescript
-import {} from 'cli-helper'
+import { createIO } from 'cli-helper'
+
+async function main() {
+  let io = createIO()
+  for (;;) {
+    let line = await io.question('> ')
+    console.log('line:', line)
+    if (line == 'exit') {
+      break
+    }
+  }
+  io.close()
+}
+
+main().catch(e => console.error(e))
 ```
 
 ## Typescript Signature
 
 ```typescript
+import { ReadLineOptions } from 'readline'
 
+/**
+ * @description async io interface based on `readline.createInterface()`.
+ * With internal buffer to avoid data lose when pasting multi-lines input.
+ */
+export function createIO(options?: {
+  input?: ReadLineOptions['input']
+  output?: ReadLineOptions['output']
+}): {
+  question: (question: string) => Promise<string>
+  close: () => void
+  flush: () => string[]
+}
 ```
 
 ## License
