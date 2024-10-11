@@ -66,14 +66,14 @@ export function createIO(options?: {
 
 ````typescript
 /**
- * @description look for the file from the current or parent directory recursively
+ * @description look for the file from the given directory or parent directory recursively
  * @example
  * ```
- * let file = resolveFile('package.json')
+ * let file = resolveFile({ dir: __dirname, filename: 'package.json' })
  * let pkg = readJSONFile(file)
  * ```
  */
-export function resolveFile(filename: string): string
+export function resolveFile(args: { dir: string; filename: string }): string
 
 /**
  * @description read file as json data

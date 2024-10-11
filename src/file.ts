@@ -2,15 +2,15 @@ import { existsSync, readFileSync, writeFileSync } from 'fs'
 import { join, resolve } from 'path'
 
 /**
- * @description look for the file from the current or parent directory recursively
+ * @description look for the file from the given directory or parent directory recursively
  * @example
  * ```
- * let file = resolveFile('package.json')
+ * let file = resolveFile({ dir: __dirname, filename: 'package.json' })
  * let pkg = readJSONFile(file)
  * ```
  */
-export function resolveFile(filename: string) {
-  let dir = __dirname
+export function resolveFile(args: { dir: string; filename: string }) {
+  let { dir, filename } = args
   for (;;) {
     let file = join(dir, filename)
     if (existsSync(file)) {
