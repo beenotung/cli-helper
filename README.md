@@ -43,6 +43,8 @@ main().catch(e => console.error(e))
 
 ## Typescript Signature
 
+**io helper functions**:
+
 ```typescript
 import { ReadLineOptions } from 'readline'
 
@@ -59,6 +61,36 @@ export function createIO(options?: {
   flush: () => string[]
 }
 ```
+
+**file helper functions**:
+
+````typescript
+/**
+ * @description look for the file from the current or parent directory recursively
+ * @example
+ * ```
+ * let file = resolveFile('package.json')
+ * let pkg = readJSONFile(file)
+ * ```
+ */
+export function resolveFile(filename: string): string
+
+/**
+ * @description read file as json data
+ * @throws JSONFileError
+ */
+export function readJSONFile(file: string): any
+
+/**
+ * @description write json data to file
+ * @throws JSONFileError
+ */
+export function writeJSONFile(file: string, data: any): void
+
+export class JSONFileError extends Error {
+  file: string
+}
+````
 
 ## License
 
