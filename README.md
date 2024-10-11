@@ -1,8 +1,8 @@
-# cli-helper
+# cli-helpers
 
 Helper library for cli applications
 
-[![npm Package Version](https://img.shields.io/npm/v/cli-helper)](https://www.npmjs.com/package/cli-helper)
+[![npm Package Version](https://img.shields.io/npm/v/cli-helpers)](https://www.npmjs.com/package/cli-helpers)
 
 ## Features
 
@@ -12,15 +12,15 @@ Helper library for cli applications
 ## Installation
 
 ```bash
-npm install cli-helper
+npm install cli-helpers
 ```
 
-You can also install `cli-helper` with [pnpm](https://pnpm.io/), [yarn](https://yarnpkg.com/), or [slnpm](https://github.com/beenotung/slnpm)
+You can also install `cli-helpers` with [pnpm](https://pnpm.io/), [yarn](https://yarnpkg.com/), or [slnpm](https://github.com/beenotung/slnpm)
 
 ## Usage Example
 
 ```typescript
-import { createIO } from 'cli-helper'
+import { createIO } from 'cli-helpers'
 
 async function main() {
   let io = createIO()

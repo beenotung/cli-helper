@@ -1,5 +1,5 @@
 {
-  "name": "cli-helper",
+  "name": "cli-helpers",
   "version": "1.0.0",
   "description": "Helper library for cli applications",
   "keywords": [
@@ -10,6 +10,14 @@
   ],
   "author": "Beeno Tung <aabbcc1241@yahoo.com.hk> (https://beeno-tung.surge.sh)",
   "license": "BSD-2-Clause",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beenotung/cli-helpers.git"
+  },
+  "homepage": "https://github.com/beenotung/cli-helpers#readme",
+  "bugs": {
+    "url": "https://github.com/beenotung/cli-helpers/issues"
+  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
