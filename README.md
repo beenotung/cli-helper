@@ -43,7 +43,8 @@ main().catch(e => console.error(e))
 
 ## Typescript Signature
 
-**io helper functions**:
+<details>
+  <summary>io helper functions</summary>
 
 ```typescript
 import { ReadLineOptions } from 'readline'
@@ -62,7 +63,9 @@ export function createIO(options?: {
 }
 ```
 
-**file helper functions**:
+</details>
+<details>
+  <summary>file helper functions</summary>
 
 ````typescript
 /**
@@ -85,12 +88,33 @@ export function readJSONFile(file: string): any
  * @description write json data to file
  * @throws JSONFileError
  */
-export function writeJSONFile(file: string, data: any): void
+export function writeJSONFile(
+  file: string,
+  data: any,
+  options?: {
+    top_comment?: string
+    bottom_comment?: string
+  },
+): void
 
 export class JSONFileError extends Error {
   file: string
 }
 ````
+
+</details>
+
+<details>
+  <summary>json helper functions</summary>
+
+```typescript
+/**
+ * @description remove comments from json text
+ */
+export function removeComments(text: string): string
+```
+
+</details>
 
 ## License
 

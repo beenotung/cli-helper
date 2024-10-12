@@ -1,5 +1,6 @@
 import { existsSync, readFileSync, writeFileSync } from 'fs'
 import { join, resolve } from 'path'
+import { removeComments } from './json'
 
 /**
  * @description look for the file from the given directory or parent directory recursively
@@ -29,6 +30,7 @@ export function resolveFile(args: { dir: string; filename: string }) {
  */
 export function readJSONFile(file: string) {
   let text = readFileSync(file).toString()
+  text = removeComments(text)
   try {
     return JSON.parse(text)
   } catch (error) {
@@ -43,7 +45,14 @@ export function readJSONFile(file: string) {
  * @description write json data to file
  * @throws JSONFileError
  */
-export function writeJSONFile(file: string, data: any) {
+export function writeJSONFile(
+  file: string,
+  data: any,
+  options?: {
+    top_comment?: string
+    bottom_comment?: string
+  },
+) {
   let text: string
   try {
     text = JSON.stringify(data, null, 2)
@@ -53,7 +62,13 @@ export function writeJSONFile(file: string, data: any) {
       'failed to serialize json file: ' + JSON.stringify(file),
     )
   }
-  writeFileSync(file, text)
+  if (options?.top_comment) {
+    text = options.top_comment + '\n' + text
+  }
+  if (options?.bottom_comment) {
+    text = text + '\n' + options.bottom_comment
+  }
+  writeFileSync(file, text.trim() + '\n')
 }
 
 export class JSONFileError extends Error {

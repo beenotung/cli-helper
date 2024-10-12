@@ -24,14 +24,20 @@
     "dist"
   ],
   "scripts": {
-    "test": "tsc --noEmit",
+    "mocha": "ts-mocha src/*.spec.ts",
+    "test": "npm run mocha && tsc --noEmit",
     "clean": "rimraf dist",
-    "build": "rimraf dist && tsc -p . && rimraf dist/tsconfig.tsbuildinfo",
+    "build": "rimraf dist && tsc -p . && rimraf dist/tsconfig.tsbuildinfo rimraf dist/*.spec.*",
     "tsc": "tsc -p ."
   },
   "devDependencies": {
+    "@types/chai": "4",
+    "@types/mocha": "^10.0.8",
     "@types/node": "^20.12.5",
+    "chai": "4",
+    "mocha": "^10.7.3",
     "rimraf": "^5.0.5",
+    "ts-mocha": "^10.0.0",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.4.4"
